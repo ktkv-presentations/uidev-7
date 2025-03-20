@@ -86,19 +86,419 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="border-b">
                                 <h4>Ширина</h4>
-                                <pre><code data-trim class="html">
+                                <pre><code data-trim class="css">
 width: 200px;
                                 </code></pre>
                             </div>
                             <div class="border-b">
-                                <div class="border-b">
-                                    <h4>Высота</h4>
-                                    <pre><code data-trim class="html">
+                                <h4>Высота</h4>
+                                <pre><code data-trim class="css">
 height: 100px;
+                                </code></pre>
+                            </div>
+                            <div>
+                                <h4>Внутренний отступ</h4>
+                                <div class="border-b">
+                                    <pre><code data-trim class="css">
+padding: 20px;
+padding: 20px 10px 15px;
                                 </code></pre>
                                 </div>
                             </div>
+                            <div>
+                                <h4></h4>
+                                <div class="border-b">
+                                    <pre><code data-trim class="css">
+margin: 20px;
+margin: 10px auto;
+                                    </code></pre>
+                                </div>
+                            </div>
                         </div>
+                    </section>
+                    <section>
+                        <h1>Запись нескольких значений</h1>
+                        <p>
+                            Таким свойствам как
+                            <code>padding</code>
+                            ,
+                            <code>margin</code>
+                            ,
+                            <code>border-radius</code>
+                            ,
+                            <code>border-width</code>
+                            можно задавать несколько уникальных значений в одном
+                            свойстве
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h4>Одно значение</h4>
+                                <pre><code data-trim class="css">
+свойство: все-стороны;
+padding: 10px;
+                            </code></pre>
+                                <em>
+                                    Внутренний отступ на 10 пикселей по всем
+                                    сторонам
+                                </em>
+                            </div>
+                            <div class="border-b">
+                                <h4>Два значения</h4>
+                                <pre><code data-trim class="css">
+свойство: верх-низ лево-право;
+margin: 10px 20px;
+                            </code></pre>
+                                <em>
+                                    Внешний отступ на 10 пикселей по вертикали и
+                                    20 по горизонтали
+                                </em>
+                            </div>
+                            <div class="border-b">
+                                <h4>Три значения</h4>
+                                <pre><code data-trim class="css">
+свойство: верх лево-право низ;
+padding: 20px 15px 10px;
+                            </code></pre>
+                                <em>
+                                    Внутренний отступ на 10 пикселей сверху, 15
+                                    слева и справа, 10 снизу
+                                </em>
+                            </div>
+                            <div class="border-b">
+                                <h4>Четыре значения</h4>
+                                <pre><code data-trim class="css">
+свойство: верх право низ лево;
+margin: 5px 15px 25px 35px;
+                            </code></pre>
+                                <em>
+                                    Внешний отступ на 5 пикселей сверху, 15
+                                    справа, 25 снизу и 35 слева
+                                </em>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>Box-sizing</h1>
+                        <h3>Методы расчета размера элементов</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h4>
+                                    <code class="css">
+                                        box-sizing: content-box
+                                    </code>
+                                </h4>
+                                <div><em>По умолчанию</em></div>
+                                <ul>
+                                    <li>
+                                        width и height включают только
+                                        содержимое (content), но не учитывают
+                                        padding и border.
+                                    </li>
+                                    <li>
+                                        Итоговый размер = content + padding +
+                                        border.
+                                    </li>
+                                </ul>
+                                <div class="border-r">
+                                    Проблема: расчет реальных размеров элемента
+                                    становится сложным
+                                </div>
+                            </div>
+                            <div class="border-b">
+                                <h4>
+                                    <code class="css">
+                                        box-sizing: border-box
+                                    </code>
+                                </h4>
+                                <ul>
+                                    <li>
+                                        <code>width</code>
+                                        и
+                                        <code>height</code>
+                                        включают content, padding и border, что
+                                        упрощает расчет размеров.
+                                    </li>
+                                    <li>
+                                        Итоговый размер = заданный width и
+                                        height, без дополнительных вычислений.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="flex gap-4">
+                            <div
+                                class="border-b"
+                                style="
+                                    width: 200px;
+                                    height: 100px;
+                                    padding: 20px;
+                                ">
+                                Это див
+                            </div>
+                            <div
+                                class="border-b"
+                                style="
+                                    width: 200px;
+                                    height: 100px;
+                                    padding: 20px;
+                                    box-sizing: border-box;
+                                ">
+                                Это див
+                            </div>
+                        </div>
+                        <pre><code class="css">
+div {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid black;
+}
+
+div.box-border {
+    box-sizing: border-box;
+}
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>
+                            Свойство
+                            <code class="css">display</code>
+                        </h1>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h4>Блочные</h4>
+                                <p>
+                                    занимают всю ширину родительского контейнера
+                                    и начинаются с новой строки
+                                </p>
+                                <ul>
+                                    <li>&lt;div&gt;</li>
+                                    <li>&lt;p&gt;</li>
+                                    <li>&lt;h1&gt; – &lt;h6&gt;</li>
+                                    <li>
+                                        &lt;section&gt;, &lt;article&gt;,
+                                        &lt;header&gt;, &lt;footer&gt;
+                                    </li>
+                                    <li>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</li>
+                                    <li>&lt;table&gt;</li>
+                                </ul>
+                            </div>
+                            <div class="border-b">
+                                <h4>Строчные</h4>
+                                <p>
+                                    не создают разрыв строки и занимают только
+                                    столько места, сколько необходимо для
+                                    контента
+                                </p>
+                                <ul>
+                                    <li>&lt;span&gt;</li>
+                                    <li>&lt;a&gt;</li>
+                                    <li>&lt;strong&gt;, &lt;em&gt;</li>
+                                    <li>&lt;label&gt;</li>
+                                    <li>&lt;img&gt;</li>
+                                </ul>
+                            </div>
+                            <div class="border-b col-span-2">
+                                <h4>Строчно-блочные</h4>
+                                <p>
+                                    не создают разрыв строки и занимают только
+                                    столько места, сколько необходимо для
+                                    контента
+                                </p>
+                                <ul>
+                                    <li>&lt;span&gt;</li>
+                                    <li>&lt;a&gt;</li>
+                                    <li>&lt;strong&gt;, &lt;em&gt;</li>
+                                    <li>&lt;label&gt;</li>
+                                    <li>&lt;img&gt;</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>
+                            Свойство
+                            <code class="css">display</code>
+                        </h1>
+                        <p>
+                            С помощью display можно перезаписать данное
+                            поведение
+                        </p>
+                        <pre><code data-trim class="css">
+.element {
+    display: block; /* Сделать элемент блочным */
+    display: inline; /* Сделать элемент строчным */
+    display: inline-block; /* Комбинированное поведение */
+    display: none; /* Полностью скрывает элемент */
+}
+                        </code></pre>
+                        <h4>Блочный span</h4>
+                        <pre><code data-trim class="css">
+span {
+    display: block;
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h1>
+                            Различие между
+                            <br />
+                            <code class="css">visibility: hidden</code>
+                            и
+                            <br />
+                            <code class="css">display: none</code>
+                        </h1>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h4><code>display: none</code></h4>
+                                <p>
+                                    элемент полностью удаляется из потока
+                                    документа, он не занимает место
+                                </p>
+                            </div>
+                            <div class="border-b">
+                                <h4><code>visibility: hidden</code></h4>
+                                <p>
+                                    элемент остается на своем месте, но
+                                    становится невидимым
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            1. Ниже
+                            <code>display:none</code>
+                        </p>
+                        <p style="display: none">2. none</p>
+                        <p>
+                            3. Ниже
+                            <code>visibility: hidden</code>
+                        </p>
+                        <p style="visibility: hidden">4. hidden</p>
+                        <p>5. Конец</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Цвета</h1>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Формат</td>
+                                    <td>Пример</td>
+                                    <td>Описание</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Название</td>
+                                    <td>
+                                        <code class="css">color: red;</code>
+                                    </td>
+                                    <td>
+                                        Использование стандартных названий
+                                        (blue, green, black и т. д.)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HEX</td>
+                                    <td>
+                                        <code class="css">color: #ff0000;</code>
+                                    </td>
+                                    <td>
+                                        Шестнадцатеричный код цвета (#RRGGBB)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HEX с прозрачностью</td>
+                                    <td>
+                                        <code class="css">
+                                            color: #ff000080;
+                                        </code>
+                                    </td>
+                                    <td>
+                                        Добавляется два символа для прозрачности
+                                        (альфа-канал)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>RGB</td>
+                                    <td>
+                                        <code class="css">
+                                            color: rgb(255, 0, 0);
+                                        </code>
+                                    </td>
+                                    <td>
+                                        Формат rgb(red, green, blue), где
+                                        значения от 0 до 255
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>RGBA</td>
+                                    <td>
+                                        <code class="css">
+                                            color: rgba(255, 0, 0, 0.5);
+                                        </code>
+                                    </td>
+                                    <td>
+                                        То же самое, но с прозрачностью (0 –
+                                        полностью прозрачный, 1 – непрозрачный)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HSL</td>
+                                    <td>
+                                        <code class="css">
+                                            color: hsl(0, 100%, 50%);
+                                        </code>
+                                    </td>
+                                    <td>
+                                        Цвет в формате hsl(hue, saturation,
+                                        lightness)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HSLA</td>
+                                    <td>
+                                        <code class="css">
+                                            color: hsla(0, 100%, 50%, 0.5);
+                                        </code>
+                                    </td>
+                                    <td>То же самое, но с прозрачностью</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h1>
+                            Свойство
+                            <code>color</code>
+                        </h1>
+                        <p>управляет цветом текста элемента</p>
+                        <pre><code data-trim class="css">
+p {
+    color: red;
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h1>Свойство <code>background-color</code></h1>
+                    </section>
+                    <section>
+                        <h1>
+                            Свойство
+                            <code>background</code>
+                        </h1>
+                        <p>Включает в себя все раннее названные свойства</p>
+                        <pre><code data-trim class="css">
+background:
+    center contain no-repeat
+    url("/shared-assets/images/examples/firefox-logo.svg"),
+    #eee 35% url("/shared-assets/images/examples/lizard.png");
+                        </code></pre>
                     </section>
                 </section>
             </div>
