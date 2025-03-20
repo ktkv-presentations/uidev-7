@@ -485,7 +485,128 @@ p {
                         </code></pre>
                     </section>
                     <section>
-                        <h1>Свойство <code>background-color</code></h1>
+                        <h1>Свойства фона</h1>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h4>
+                                    <code class="css">background-color</code>
+                                </h4>
+                                <p>задает цвет фона</p>
+                                <pre><code data-trim class="css">
+div {
+    background-color: lightgray;
+}
+                                </code></pre>
+                            </div>
+                            <div class="border-b">
+                                <h4>
+                                    <code class="css">background-image</code>
+                                </h4>
+                                <p>устанавливает изображение в качестве фона</p>
+                                <pre><code data-trim class="css">
+body {
+    background-image: url('background.jpg');
+}
+                                </code></pre>
+                                <em>
+                                    Может быть как удаленное, так и локальное
+                                    изображение
+                                </em>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>Свойства фона</h1>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h4>
+                                    <code class="css">background-position</code>
+                                </h4>
+                                <p>задает положение фонового изображения</p>
+                                <pre><code data-trim class="css">
+div {
+    background-image: url('logo.png');
+    // background-position: left top;
+    background-position: center center;
+}
+                                </code></pre>
+                            </div>
+                            <div class="border-b">
+                                <h4>
+                                    <code class="css">
+                                        background-attachment
+                                    </code>
+                                </h4>
+                                <p>прокручивать вместе со страницей</p>
+                                <pre><code data-trim class="css">
+body {
+    background-image: url('stars.jpg');
+    background-attachment: fixed;
+}
+                                </code></pre>
+                                <ul>
+                                    <li>
+                                        <code>scroll</code>
+                                        Фон прокручивается вместе со страницей
+                                        (по умолчанию)
+                                    </li>
+                                    <li>
+                                        <code>fixed</code>
+                                        Фон остается неподвижным
+                                    </li>
+                                    <li>
+                                        <code>local</code>
+                                        Прокручивается только внутри элемента
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>Свойства фона</h1>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h4>
+                                    <code class="css">background-repeat</code>
+                                </h4>
+                                <p>управляет повторением фона</p>
+                                <pre><code data-trim class="css">
+body {
+    background-image: url('pattern.png');
+    background-repeat: no-repeat;
+}
+                                </code></pre>
+                                <em>
+                                    По умолчанию изображение фона повторяется во
+                                    всех направлениях, чтобы не повторялось
+                                    можно поставить `no-repeat`
+                                </em>
+                            </div>
+                            <div class="border-b">
+                                <h4>
+                                    <code class="css">background-size</code>
+                                </h4>
+                                <p>размер фонового изображения</p>
+                                <pre><code data-trim class="css">
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+}
+                                </code></pre>
+                                <ul>
+                                    <li>
+                                        <code class="css">cover</code>
+                                        - изображение полностью покрывает
+                                        контейнер
+                                    </li>
+                                    <li>
+                                        <code class="css">contain</code>
+                                        - изображение полностью помещается в
+                                        контейнер
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
                     <section>
                         <h1>
@@ -494,11 +615,112 @@ p {
                         </h1>
                         <p>Включает в себя все раннее названные свойства</p>
                         <pre><code data-trim class="css">
-background:
-    center contain no-repeat
-    url("/shared-assets/images/examples/firefox-logo.svg"),
-    #eee 35% url("/shared-assets/images/examples/lizard.png");
+body {
+    background: url('image.jpg') no-repeat center center / cover fixed;
+}
                         </code></pre>
+                        <h4>Порядок свойств</h4>
+                        <ol>
+                            <li>background-image</li>
+                            <li>background-repeat</li>
+                            <li>background-position</li>
+                            <li>background-size</li>
+                            <li>background-attachment</li>
+                        </ol>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Градиенты в CSS</h1>
+                        <h3>Линейный градиент</h3>
+                        <pre><code data-trim class="css">
+div {
+    background: linear-gradient(направление, цвет_1, цвет_2, цвет_n);
+    background: linear-gradient(to right, red, yellow);
+}
+                        </code></pre>
+                        <h4>Значения направления</h4>
+                        <ul>
+                            <li>
+                                <code>to top</code>
+                                (снизу вверх)
+                            </li>
+                            <li>
+                                <code>to left</code>
+                                (справа налево)
+                            </li>
+                            <li>
+                                <code>to bottom right</code>
+                                (по диагонали)
+                            </li>
+                        </ul>
+                        <em>
+                            Цветов может быть несколько
+                            <code class="css">
+                                linear-gradient(to bottom, red, orange, yellow,
+                                green, blue)
+                            </code>
+                        </em>
+                    </section>
+                    <section>
+                        <h1>Градиенты в CSS</h1>
+                        <h3>Радиальный градиент</h3>
+                        <pre><code data-trim class="css">
+div {
+    background: radial-gradient(форма, цвет_1, цвет_2, цвет_n);
+    background: radial-gradient(circle, red, yellow, green);
+}
+                        </code></pre>
+                        <h4>Значения формы</h4>
+                        <ul>
+                            <ul>
+                                <li>
+                                    <code>circle</code>
+                                    делает градиент круглым
+                                </li>
+                                <li>
+                                    <code>ellipse</code>
+                                    – овальным
+                                </li>
+                            </ul>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Прозрачность</h1>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="border-b">
+                                <h4>
+                                    Свойство
+                                    <code>opacity</code>
+                                </h4>
+                                <p>
+                                    Работает на весь элемент, включая текст и
+                                    дочерние элементы
+                                </p>
+                                <pre><code data-trim class="css">
+div {
+    opacity: 0.5;
+}
+                                </code></pre>
+                                <em>Значение от 0 до 1</em>
+                            </div>
+                            <div class="border-b">
+                                <h4>
+                                    Использование
+                                    <code>alpha</code>
+                                    канала в
+                                    <code>background</code>
+                                </h4>
+                                <p>Работает только на фон</p>
+                                <pre><code data-trim class="css">
+div {
+    background: rgba(0, 0, 255, 0.5);
+}
+                                </code></pre>
+                            </div>
+                        </div>
                     </section>
                 </section>
             </div>
